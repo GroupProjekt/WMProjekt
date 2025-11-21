@@ -8,7 +8,7 @@ public class Mannschaft
     private int MaxTore;
     private int Punktzahl;
     private int Torverhaeltnis;
-    private string Gruppenplatzierung; // help
+    private string Gruppenplatzierung;
 
     public Mannschaft(string name, string bildFlagge, int quartil)
     {
