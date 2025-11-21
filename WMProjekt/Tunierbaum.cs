@@ -7,7 +7,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WMProjekt
 {
-    internal class Tunierbaum
+    public class Tunierbaum
     {   private Mannschaft siegerAchtel1;
         private Mannschaft siegerAchtel2;
         private Mannschaft siegerAchtel3;
