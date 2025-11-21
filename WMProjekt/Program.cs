@@ -10,8 +10,15 @@ namespace WMProjekt
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new Form1());
+
+            Tools einleser = new Tools();
+            einleser.NamenEinlesen();
+
+            Logic logic = new Logic();
+            logic.MannschaftenErstellen();
+            
         }
     }
 }
