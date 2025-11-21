@@ -8,7 +8,11 @@ using System.Xml.Serialization;
 namespace WMProjekt
 {
     internal class Gruppe
-    {    
+    {
+        
+
+
+
         char bezeichnung;
         List<string> mannschaften = new List<string>();
         List<string> spieltag1 = new List<string>();
@@ -42,11 +46,10 @@ namespace WMProjekt
             spieleEinteilen();
 
             List<string> alleSpiele = new List<string>();
-            alleSpiele.Add("=== Spieltag 1 ===");
             alleSpiele.AddRange(spieltag1);
-            alleSpiele.Add("=== Spieltag 2 ===");
+
             alleSpiele.AddRange(spieltag2);
-            alleSpiele.Add("=== Spieltag 3 ===");
+
             alleSpiele.AddRange(spieltag3);
 
             return alleSpiele;
