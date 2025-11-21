@@ -3,11 +3,11 @@ using WMProjekt;
 
 public class Spiel
 {
-    private Mannschaft m1;
-    private Mannschaft m2;
+    public Mannschaft m1 { get; set; }
+    public Mannschaft m2 { get; set; }
     private bool gruppenphase;
-    private int toreMannschaft1 {  get; set; }
-    private int toreMannschaft2 { get; set; }
+    public int toreMannschaft1 {  get; set; }
+    public int toreMannschaft2 { get; set; }
     
     public Spiel(Mannschaft m1, Mannschaft m2, bool gruppenphase)
     {
