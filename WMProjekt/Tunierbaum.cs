@@ -151,6 +151,13 @@ namespace WMProjekt
             this.allMatches.Append(finale);
         }
 
+        public void alleSpieleAbAchtelfinaleDurchspielen()
+        {
+            achtelfinale();
+            viertelfinale();
+            halbfinale();
+            finale();
+        }
         public List<Spiel> getAllResults()
         {
             return this.allMatches;
