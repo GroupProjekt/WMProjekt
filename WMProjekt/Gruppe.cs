@@ -9,11 +9,16 @@ namespace WMProjekt
 {
     internal class Gruppe
     {
-        
+        Spiel gruppenSpiel1 = new Spiel();
+        Spiel gruppenSpiel2 = new Spiel();
+        Spiel gruppenSpiel3 = new Spiel();
+        Spiel gruppenSpiel4 = new Spiel();
+        Spiel gruppenSpiel5 = new Spiel();
+        Spiel gruppenSpiel6 = new Spiel();
 
 
 
-        char bezeichnung;
+        char bezeichnung { set; get; }
         List<string> mannschaften = new List<string>();
         List<string> spieltag1 = new List<string>();
         List<string> spieltag2 = new List<string>();
