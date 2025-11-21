@@ -1,21 +1,24 @@
-﻿using WMProjekt;
+﻿using System;
+using WMProjekt;
 
 public class Spiel
 {
     private Mannschaft m1;
     private Mannschaft m2;
     private bool gruppenphase;
-    private int toreMannschaft1 = toreBerechnen(m1);
-    private int toreMannschaft2 = toreBerechnen(m2);
+    private int toreMannschaft1 {  get; set; }
+    private int toreMannschaft2 { get; set; }
     
     public Spiel(Mannschaft m1, Mannschaft m2, bool gruppenphase)
     {
         this.m1 = m1;
         this.m2 = m2;
         this.gruppenphase = gruppenphase;
+        toreMannschaft1 = toreBerechnen(m1);
+        toreMannschaft2 = toreBerechnen(m2);
     }
 
-    public void startGame() 
+    public void gruppenphaseStart() 
     {
         if (gruppenphase)
         {
@@ -30,24 +33,32 @@ public class Spiel
 
     public Mannschaft getGewinner()
     {
-        if (Gewinner() == "M1")
+        String ergebnis = Gewinner();
+
+        // Solange unentschieden, Tore neu berechnen
+        while ("Unentschieden" == ergebnis)
         {
-            return m1;
+            toreMannschaft1 = toreBerechnen(m1);
+            toreMannschaft2 = toreBerechnen(m2);
+            ergebnis = Gewinner();
         }
-        else if (Gewinner() == "M2")
+
+        // Gewinner zurückgeben
+        switch (ergebnis)
         {
-            return m2;
-        }
-        else
-        {
-            return null;
+            case "M1":
+                return m1;
+            case "M2":
+                return m2;
+            default:
+                return null;
         }
     }
 
     private int toreBerechnen(Mannschaft mannschaft)
     {
         Random rnd = new Random();
-        int tore = rnd.Next(0, mannschaft.getMaxTore());
+        int tore = rnd.Next(0, mannschaft.GetMaxTore());
         return tore;
     }
 
@@ -71,24 +82,24 @@ public class Spiel
     {
         if (Gewinner() == "Unentschieden")
         {
-            m1.setPunktzahl(m1.getPunktzahl() + 1);
-            m2.setPunktzahl(m2.getPunktzahl() + 1);
+            m1.SetPunktzahl(m1.GetPunktzahl() + 1);
+            m2.SetPunktzahl(m2.GetPunktzahl() + 1);
         }
         else if (Gewinner() == "M1")
         {
-            m1.setPunktzahl(m1.getPunktzahl() + 3);
+            m1.SetPunktzahl(m1.GetPunktzahl() + 3);
         }
         else if (Gewinner() == "M2")
         {
-            m2.setPunktzahl(m2.getPunktzahl() + 3);
+            m2.SetPunktzahl(m2.GetPunktzahl() + 3);
         }
     }
 
     private void addVerhaeltnis()
     {
-        m1.setTorverhaeltnis(m1.getTorverhaeltnis() + Verhaeltnis());
+        m1.SetTorverhaeltnis(m1.GetTorverhaeltnis() + Verhaeltnis());
         // * -1 um das Verhältnis umzukehren
-        m2.setTorverhaeltnis(m2.getTorverhaeltnis() + (Verhaeltnis() * (-1)));
+        m2.SetTorverhaeltnis(m2.GetTorverhaeltnis() + (Verhaeltnis() * (-1)));
     }
 
     private int Verhaeltnis()
