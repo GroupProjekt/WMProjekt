@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace WMProjekt
 {
-    internal class Gruppe
+    public class Gruppe
     {
         Spiel gruppenSpiel1 = new Spiel();
         Spiel gruppenSpiel2 = new Spiel();
